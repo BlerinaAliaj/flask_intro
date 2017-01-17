@@ -27,6 +27,10 @@ def start_here():
 @app.route('/hello')
 def say_hello():
     """Say hello and prompt for user's name."""
+    words = ""
+
+    for compliment in AWESOMENESS:
+        words = words + "<option name=" + compliment + ">" + compliment + "</option>"
 
     return """
     <!doctype html>
@@ -40,26 +44,27 @@ def say_hello():
         <form action="/greet">
           <label>What's your name? <input type="text" name="person"></label>
           <label>Select your compliment:
-            <select name="compliment">
-              <option value="awesome">awesome</option>
-              <option value="terrific">terrific</option>
-              <option value="fantastic">fantastic</option>
-              <option value="neato">neato</option>
-              <option value="fantabulous">fantastic</option>
-              <option value="oh-so-not-meh">oh-so-not-meh</option>
-              <option value="wowza">wowza</option>
-              <option value="brilliant">brilliant</option>
-              <option value="ducky">ducky</option>
-              <option value="coolio">coolio</option>
-              <option value="incredible">incredible</option>
-              <option value="wonderful">wonderful</option>
-              <option value="smashing">smashing</option>
-              <option value="lovely">lovely</option>
-            </select>
+            <select name="compliment">""" + words + """</select>
           </label>
           <input type="submit">
         </form>
         </div>
+
+              """  # <option value="awesome">awesome</option>
+              # <option value="terrific">terrific</option>
+              # <option value="fantastic">fantastic</option>
+              # <option value="neato">neato</option>
+              # <option value="fantabulous">fantastic</option>
+              # <option value="oh-so-not-meh">oh-so-not-meh</option>
+              # <option value="wowza">wowza</option>
+              # <option value="brilliant">brilliant</option>
+              # <option value="ducky">ducky</option>
+              # <option value="coolio">coolio</option>
+              # <option value="incredible">incredible</option>
+              # <option value="wonderful">wonderful</option>
+              # <option value="smashing">smashing</option>
+              # <option value="lovely">lovely</option>
+    """
 
         <h1>We don't like you</h1>
         <div>
@@ -69,7 +74,6 @@ def say_hello():
           <input type="submit">
         </form>
         </div>
-
       </body>
     </html>
     """
